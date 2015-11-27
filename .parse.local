@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "u-nice"
+    },
+    "u-nice": {
+      "applicationId": "rp0nxhO9titPELBTGJfz8bi0t66uQdZh4H645Fy2"
+    }
+  }
+}
