@@ -1,0 +1,55 @@
+@import "normalize.less";
+@import "boilerplate.less";
+@import "../bootstrap/bootstrap.less";
+@import "lesshat-prefixed.less";
+
+@time: 300ms;
+
+.full {
+    padding: 0 !important;
+}
+// FONTS
+.header-font() {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+.body-font() {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    color: #000;
+    .body-font();
+    font-size: 16px;
+}
+
+h1 {
+    .header-font();
+}
+
+p {
+    margin: 0 0 2em;
+}
+
+.vimeo {
+    position: relative;
+    width: 83.3333333%;
+    height: 0;
+    padding-bottom: 51%;
+    margin-bottom: 50px;
+
+    iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+}
+
+@import "masthead.less";
+@import "nav.less";
+@import "page.less";

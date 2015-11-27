@@ -1,0 +1,23 @@
+{
+  "name": "unice",
+  "version": "0.0.0",
+  "authors": [
+    "Chris"
+  ],
+  "description": "unice",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "jquery": "~2.1.4",
+    "less": "~2.5.3"
+  }
+}

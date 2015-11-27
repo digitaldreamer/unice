@@ -1,0 +1,59 @@
+#page-content {
+    @z-index: 1;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 0 100px;
+
+    &.active {
+        position: relative;
+        height: auto;
+        overflow: auto;
+    }
+
+    #page-masthead {
+        height: 300px;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: relative;
+        margin: 0 0 50px;
+
+        .container {
+            position: relative;
+            height: 100%;
+        }
+
+        h1 {
+            position: absolute;
+            bottom: -10px;
+            left: 8.33333333%;
+            .header-font();
+            font-size: 100px;
+            line-height: 1em;
+            color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    img {
+        display: block;
+        border: 5px solid #000;
+        margin: 50px auto;
+    }
+
+    .shade {
+        background: #ccc;
+    }
+
+    .step {
+        h2 {
+            .header-font();
+            text-transform: uppercase;
+            font-size: 2em;
+        }
+    }
+}
