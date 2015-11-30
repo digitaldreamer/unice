@@ -240,9 +240,11 @@
         overflow: hidden;
         position: relative;
         opacity: 0;
-        padding: 5px;
+        border: 5px solid #fff;
+        padding: 0;
         background: #fff;
         .lh-transition(opacity @time);
+        cursor: pointer;
 
         .project {
             position: relative;
@@ -253,17 +255,15 @@
             background-repeat: no-repeat;
             .lh-scale(1);
             .lh-transition(transform @time);
-
+            cursor: pointer;
         }
         &:hover {
-            cursor: pointer;
-
             .project {
                 .lh-scale(1.2);
             }
         }
 
-        p {
+        .project-title {
             text-align: center;
             position: absolute;
             margin: 0;
@@ -271,7 +271,7 @@
             .lh-translateY(-50%);
             width: 100%;
             padding: 15px;
-            background: rgba(0, 0, 0, .5);
+            background: rgba(0, 0, 0, .75);
             z-index: @z-index + 10;
         }
     }

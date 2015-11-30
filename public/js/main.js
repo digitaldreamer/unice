@@ -1,6 +1,6 @@
 Parse.initialize("rp0nxhO9titPELBTGJfz8bi0t66uQdZh4H645Fy2", "k6WPuEpEphSNoiNUrphYJKrbxmzZxrDleM5SGEEi");
 
-app = angular.module('eunice', []);
+app = angular.module('unice', []);
 
 app.directive("scroll", function ($window) {
     return function(scope, element, attrs) {
@@ -27,7 +27,7 @@ app.filter("sanitize", ['$sce', function($sce) {
 app.controller('Pages', function($scope) {
     var Project = Parse.Object.extend('Project');
     var queryInteractive= new Parse.Query(Project).equalTo('section', 'interactive').ascending('order');
-    var queryUIUX= new Parse.Query(Project).equalTo('section', 'uiux');
+    var queryUIUX= new Parse.Query(Project).equalTo('section', 'uiux').ascending('order');
 
     queryInteractive.find({
         success: function(results) {
