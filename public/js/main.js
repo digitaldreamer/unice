@@ -55,6 +55,7 @@ app.controller('Pages', function($scope) {
         'page': '',
     };
     $scope.page = null;
+    $scope.navOverlay = false;
 
     $scope.isNavActive = function() {
         /*
@@ -64,7 +65,7 @@ app.controller('Pages', function($scope) {
 
         if ($scope.pages.section == 'home') {
             active = false;
-        } else if ($scope.isPagesActive()) {
+        }  else {
             active = true;
         }
 
@@ -85,13 +86,13 @@ app.controller('Pages', function($scope) {
         return $scope.pages.section === section;
     };
 
-    $scope.sectionToggle = function(section) {
+    $scope.sectionToggle = function(section, force) {
         /*
             sets the section
         */
         var change = false;
 
-        if ($scope.pages.section != section) {
+        if ($scope.pages.section != section || force) {
             console.log('change section: ' + section);
             $scope.pages.section = section;
             $scope.pagesHide();
@@ -107,6 +108,7 @@ app.controller('Pages', function($scope) {
             change = true;
         }
 
+        $scope.navOverlayToggle(false);
         return change;
     };
 
@@ -134,6 +136,19 @@ app.controller('Pages', function($scope) {
         return active;
     };
 
+    $scope.isMastheadActive = function() {
+        var active = false;
+
+        if ($scope.pages.section == 'about') {
+            active = false;
+        } else {
+            active = !$scope.isPagesActive();
+            console.log(active);
+        }
+
+        return active;
+    };
+
     $scope.isPage = function(page) {
         /*
             returns true if the page is active
@@ -149,6 +164,7 @@ app.controller('Pages', function($scope) {
         $scope.pages.page = page.id;
         $scope.page = page;
         $scope.getPageSteps(page);
+        $scope.navOverlayToggle(false);
     };
 
     $scope.pagesHide = function() {
@@ -158,6 +174,7 @@ app.controller('Pages', function($scope) {
         $scope.pages.page = '';
         $scope.page = null;
         $scope.pageSteps = null;
+        $scope.navOverlayToggle(false);
     };
 
     $scope.renderVideo = function(videoId) {
@@ -168,6 +185,14 @@ app.controller('Pages', function($scope) {
         }
 
         return html;
+    };
+
+    $scope.navOverlayToggle = function(show) {
+        if (typeof show == 'boolean') {
+            $scope.navOverlay = show;
+        } else {
+            $scope.navOverlay = !$scope.navOverlay;
+        }
     };
 });
 

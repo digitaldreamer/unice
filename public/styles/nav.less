@@ -5,7 +5,7 @@
     background: rgba(0, 0, 0, .7);
     height: 60px;
     width: 100%;
-    z-index: 1000000;
+    z-index: 2000;
     .lh-transition(top @time);
 
     &.fixed {
@@ -31,6 +31,7 @@
             color: #fff;
             opacity: 1;
             text-decoration: none;
+            margin: 0 10px;
             .lh-transition(opacity @time);
 
             &:hover {
@@ -77,6 +78,50 @@
 
         &:hover {
             opacity: .5;
+        }
+    }
+}
+
+#nav-overlay {
+    @z-index: 1000;
+    z-index: @z-index;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .75);
+    top: -100%;
+    opacity: 0;
+    .lh-transition(opacity @time);
+
+    &.active {
+        top: 0;
+        opacity: 1;
+    }
+
+    ul {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        list-style-type: none;
+        top: 50%;
+        text-align: center;
+        .lh-translateY(-50%);
+    }
+
+    a {
+        font-size: 30px;
+        display: block;
+        padding: 10px 0;
+        color: #fff;
+        text-transform: uppercase;
+        .header-font();
+        .lh-transition(background @time, color @time);
+
+        &:hover {
+            background: rgba(255, 255, 255, .5);
+            color: #000;
+            text-decoration: none;
         }
     }
 }

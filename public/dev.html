@@ -25,11 +25,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div id="masthead" ng-class="{'inactive': isPagesActive()}">
+    <div id="masthead" ng-class="{'inactive': !isMastheadActive()}">
       <div class="container-fluid">
         <div class="row">
 
-          <div id="intro" class="col-md-4">
+          <!-- <div id="intro" class="col-md-4">
             <div class="wrapper">
               <h1>Eunice Kim</h1>
               <a href ng-click="sectionToggle('home')">
@@ -48,13 +48,14 @@
                 </a>
               </div>
             </div>
-          </div><!-- intro -->
+          </div> -->
+          <!-- intro -->
 
-          <div id="interactive" class="full" ng-class="{'col-md-8': isSection('interactive'), 'col-md-4': !isSection('interactive'), 'active': isSection('interactive'), 'inactive': isInactiveSection('interactive')}">
+          <div id="interactive" class="full" ng-class="{'col-md-12': isSection('interactive'), 'col-md-6': !isSection('interactive'), 'active': isSection('interactive'), 'inactive': isInactiveSection('interactive')}">
             <div class="section-link" ng-click="sectionToggle('interactive')">
               <div class="section-title" ng-click="sectionToggle('home') || sectionToggle('interactive'); $event.stopPropagation();">Interactive</div>
               <div class="section-background"></div>
-              <a href class="section-close" ng-click="sectionToggle('home'); $event.stopPropagation();"><img src="img/close.png"></a>
+              <!-- <a href class="section-close" ng-click="sectionToggle('home'); $event.stopPropagation();"><img src="img/left-arrow.png"></a> -->
 
               <div class="projects container-fluid" ng-click="$event.stopPropagation();">
                 <div class="row">
@@ -70,11 +71,11 @@
             </div>
           </div><!-- interactive -->
 
-          <div id="uiux" class="full" ng-class="{'col-md-8': isSection('uiux'), 'col-md-4': !isSection('uiux'), 'active': isSection('uiux'), 'inactive': isInactiveSection('uiux')}">
+          <div id="uiux" class="full" ng-class="{'col-md-12': isSection('uiux'), 'col-md-6': !isSection('uiux'), 'active': isSection('uiux'), 'inactive': isInactiveSection('uiux')}">
             <div class="section-link" ng-click="sectionToggle('uiux')">
               <div class="section-title" ng-click="sectionToggle('home') || sectionToggle('uiux'); $event.stopPropagation();">UI / UX</div>
               <div class="section-background"></div>
-              <a href class="section-close" ng-click="sectionToggle('home'); $event.stopPropagation();"><img src="img/close.png"></a>
+              <!-- <a href class="section-close" ng-click="sectionToggle('home'); $event.stopPropagation();"><img src="img/left-arrow.png"></a> -->
 
               <div class="projects container-fluid">
                 <div class="row">
@@ -96,12 +97,24 @@
 
     <div id="nav" ng-class="{'active': isNavActive()}">
       <a href class="logo" ng-click="sectionToggle('home')"><img src="img/eunice.jpg"></a>
-      <a href class="hamburger" ng-click="sectionToggle('home')">
+      <a href class="hamburger" ng-click="navOverlayToggle()">
         <span class="ham ham-1"></span>
         <span class="ham ham-2"></span>
         <span class="ham ham-3"></span>
       </a>
-      <p><a href ng-click="pagesHide()">{{ pages.navTitle }}</a></p>
+
+      <p>
+        <a href ng-click="pagesHide()">{{ pages.navTitle }}</a>
+      </p>
+    </div><!-- nav -->
+
+    <div id="nav-overlay" ng-class="{'active': navOverlay}">
+      <ul class="links">
+        <!-- <li><a href ng-click="sectionToggle('home')">Home</a></li> -->
+        <li><a href ng-click="sectionToggle('interactive', true)">Interactive</a></li>
+        <li><a href ng-click="sectionToggle('uiux', true)">UI / UX</a></li>
+        <li><a href ng-click="sectionToggle('about', true)">About</a></li>
+      </ul>
     </div>
 
     <div id="page-content" ng-class="{'active': isPagesActive()}" ng-if="page">
@@ -138,6 +151,29 @@
       </div>
 
     </div><!-- page-content -->
+
+    <div id="about" class="container-fluid" ng-class="{'active': isSection('about')}">
+      <div class="row">
+        <div class="box col-md-4 col-md-offset-4">
+          <a href ng-click="sectionToggle('home')">
+            <img class="logo" src="img/logo_gray.png">
+          </a>
+
+          <p>
+          Eunice is a collaborative interaction / UX designer for a variety of responsive, modular interfaces and alternative imaging devices. She has a background in multimedia arts and technology to explore the imaginative use of communications technologies - specialize in ideas and solutions to existing problem, improve and bring delight and art into people's lives while balancing creativity with functionality. <br>
+
+          <p>
+          She has a Master’s degree in the Interactive Telecommunication Program from New York University’s Tisch School of Arts and a BFA in Multimedia Arts from School of Visual Arts. She has been transforming the space at the American Museum of Natural History for #OneStepBeyond since 2011.
+
+          <div class="social">
+            <a class="contact" href="https://www.linkedin.com/in/eunice-kim-5b8a5555/en">
+              <img class="linkedin" src="img/linkedin.png">
+              <span class="resume">Resume</span>
+            </a>
+          </div>
+        </div>
+      </div><!-- row -->
+    </div><!-- about -->
 
     <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
